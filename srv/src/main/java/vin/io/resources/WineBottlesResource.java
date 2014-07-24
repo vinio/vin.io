@@ -28,13 +28,10 @@ public class WineBottlesResource {
     @POST("/bottles")
     public Iterable<WineBottle> addBottle(WineBottle bottle) {
 
-        // The mongo collection
         MongoCollection bottles = this.bottles.get();
 
-        // Add new bottle
         bottles.insert(bottle);
 
-        // Returns new list of bottles
         return bottles.find().as(WineBottle.class);
     }
 
