@@ -2,4 +2,23 @@
 
     <h3>Here, all my bottles... :)</h3>
 
+    <table>
+        <thead>
+        <tr>
+            <th>Domain</th>
+            <th>Vintage</th>
+            <th>Description</th>
+            <th>Picture</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="bottle in bottles">
+            <td>{{ bottle.domain }}</td>
+            <td>{{ bottle.vintage }}</td>
+            <td>{{ bottle.description }}</td>
+            <img ng-src="../images/{{ bottle.picture }}" alt="truc" />
+        </tr>
+        </tbody>
+    </table>
+
 </div>
