@@ -24,6 +24,12 @@ public class AppModule {
     }
 
     @Provides
+    @Named("mongo.db")
+    public String dbName() {
+        return "vin_dot_io";
+    }
+
+    @Provides
     public ConfigSupplier appConfigSupplier(ConfigLoader configLoader) {
         // Load settings.properties in vin.io package as a set of config entries
         return configLoader.fromResource("vin/io/settings");

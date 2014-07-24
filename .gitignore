@@ -1,6 +1,8 @@
 .idea
 .idea/artifacts
 .idea/workspace.xml
+srv/srv.iml
+ui/ui.iml
 logs
 srv/target
 srv/logs
