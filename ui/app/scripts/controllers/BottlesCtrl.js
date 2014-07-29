@@ -5,4 +5,7 @@ angular.module('vin.io')
 
         $scope.bottles = Bottles.query();
 
+        $scope.select = function (bottle) {
+            $scope.selection = bottle;
+        };
     });
