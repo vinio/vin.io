@@ -6,6 +6,7 @@ import restx.annotations.POST;
 import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.jongo.JongoCollection;
+import restx.security.PermitAll;
 import vin.io.domain.WineBottle;
 
 import javax.inject.Named;
@@ -21,11 +22,13 @@ public class WineBottlesResource {
     }
 
     @GET("/bottles")
+    @PermitAll
     public Iterable<WineBottle> getAllBottles() {
         return bottles.get().find().as(WineBottle.class);
     }
 
     @POST("/bottles")
+    @PermitAll
     public Iterable<WineBottle> addBottle(WineBottle bottle) {
 
         MongoCollection bottles = this.bottles.get();
