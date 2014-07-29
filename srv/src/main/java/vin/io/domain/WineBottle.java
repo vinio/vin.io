@@ -1,6 +1,13 @@
 package vin.io.domain;
 
+import org.jongo.marshall.jackson.oid.Id;
+import org.jongo.marshall.jackson.oid.ObjectId;
+
 public class WineBottle {
+
+    @ObjectId
+    @Id
+    private String key;
 
     private String domain;
 
@@ -9,6 +16,10 @@ public class WineBottle {
     private String description;
 
     private String picture;
+
+    public String getKey() {
+        return key;
+    }
 
     public String getDomain() {
         return domain;
@@ -24,6 +35,10 @@ public class WineBottle {
 
     public String getPicture() {
         return picture;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public WineBottle setDomain(final String domain) {
