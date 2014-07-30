@@ -13,7 +13,7 @@ exports.config = {
 
     // list of specs
     specs: [
-        'test/e2e/**/*.js'
+        'e2e/**/*.js'
     ],
 
     // Options to be passed to Jasmine-node.
