@@ -6,3 +6,4 @@ ui/ui.iml
 logs
 srv/target
 srv/logs
+*.log
