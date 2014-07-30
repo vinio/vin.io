@@ -26,7 +26,7 @@ public class AppModule {
     @Provides
     @Named("mongo.db")
     public String dbName() {
-        return "vin_dot_io";
+        return "vinio";
     }
 
     @Provides
