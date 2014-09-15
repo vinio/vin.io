@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('vin.io')
-    .controller('BottlesCtrl', function ($scope, Bottles, Notification) {
+    .controller('BottlesCtrl', function ($scope, $route, Bottles, Notification) {
 
         angular.extend($scope, {
 
@@ -16,6 +16,7 @@ angular.module('vin.io')
                 return Bottles.createOrUpdate(bottle)
                     .then(function () {
                         Notification.notify.success('Bottle {} updated', [ bottle._id ]);
+                        $route.reload();
                     })
                     .catch(function () {
                         Notification.notify.error('Error during bottle {} update', [ bottle._id ]);
