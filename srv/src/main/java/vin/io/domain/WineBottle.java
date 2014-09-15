@@ -6,6 +6,8 @@ public class WineBottle extends Entity {
 
     private int vintage;
 
+    private Color color;
+
     private String description;
 
     private String picture;
@@ -18,6 +20,10 @@ public class WineBottle extends Entity {
         return vintage;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -26,13 +32,8 @@ public class WineBottle extends Entity {
         return picture;
     }
 
-    public WineBottle setDomain(final String domain) {
-        this.domain = domain;
-        return this;
-    }
-
-    public WineBottle setVintage(final int vintage) {
-        this.vintage = vintage;
+    public WineBottle setPicture(final String picture) {
+        this.picture = picture;
         return this;
     }
 
@@ -41,8 +42,18 @@ public class WineBottle extends Entity {
         return this;
     }
 
-    public WineBottle setPicture(final String picture) {
-        this.picture = picture;
+    public WineBottle setColor(final Color color) {
+        this.color = color;
+        return this;
+    }
+
+    public WineBottle setVintage(final int vintage) {
+        this.vintage = vintage;
+        return this;
+    }
+
+    public WineBottle setDomain(final String domain) {
+        this.domain = domain;
         return this;
     }
 

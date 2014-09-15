@@ -1,4 +1,6 @@
-package vin.io.domain;
+package vin.io.domain.web;
+
+import vin.io.domain.Entity;
 
 public class ResponseAck<T extends Entity> {
 

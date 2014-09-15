@@ -1,4 +1,4 @@
-package vin.io.domain;
+package vin.io.domain.web;
 
 public enum BusinessStatus {
 
