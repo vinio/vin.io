@@ -3,9 +3,9 @@
 angular.module('vin.io')
     .controller('BottlesCtrl', function ($scope, $route, Bottles, Notification) {
 
-        angular.extend($scope, {
 
-            bottles: Bottles.query(),
+
+        angular.extend($scope, {
 
             colors: [ 'RED', 'WHITE', 'ROSE' ],
 
@@ -14,11 +14,15 @@ angular.module('vin.io')
                 $scope.currentPicture = bottle.picture;
             },
 
+            load: function () {
+                $scope.bottles = Bottles.query();
+            },
+
             edit: function (bottle) {
                 return Bottles.createOrUpdate(bottle)
                     .then(function () {
                         Notification.notify.success('Bottle {} updated', [ bottle._id ]);
-                        $route.reload();
+                        $scope.load();
                     })
                     .catch(function () {
                         Notification.notify.error('Error during bottle {} update', [ bottle._id ]);
@@ -26,4 +30,6 @@ angular.module('vin.io')
             }
 
         });
+
+        $scope.load();
     });
