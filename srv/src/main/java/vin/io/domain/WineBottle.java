@@ -12,6 +12,8 @@ public class WineBottle extends Entity {
 
     private String picture;
 
+    private long price;
+
     public String getDomain() {
         return domain;
     }
@@ -30,6 +32,10 @@ public class WineBottle extends Entity {
 
     public String getPicture() {
         return picture;
+    }
+
+    public long getPrice() {
+        return price;
     }
 
     public WineBottle setPicture(final String picture) {
@@ -57,12 +63,20 @@ public class WineBottle extends Entity {
         return this;
     }
 
+    public WineBottle setPrice(final long price) {
+        this.price = price;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "WineBottle{" +
                 "domain='" + domain + '\'' +
                 ", vintage=" + vintage +
+                ", color=" + color +
                 ", description='" + description + '\'' +
+                ", picture='" + picture + '\'' +
+                ", price=" + price +
                 '}';
     }
 }
