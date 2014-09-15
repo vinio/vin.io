@@ -10,7 +10,7 @@ angular.module('vin.io')
             colors: [ 'RED', 'WHITE', 'ROSE' ],
 
             detail: function (bottle) {
-                $scope.selection = bottle;
+                $scope.selection = _.cloneDeep(bottle);
                 $scope.currentPicture = bottle.picture;
             },
 

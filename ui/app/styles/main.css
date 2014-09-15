@@ -54,12 +54,12 @@ body {
     cursor: pointer;
 }
 
-.master-list {
-
+.main-content {
+    padding-top: 15px;
 }
 
-.detail-form {
-
+.bottles-list ul {
+    list-style-type: none;
 }
 
 
