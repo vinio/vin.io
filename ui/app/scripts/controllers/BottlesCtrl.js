@@ -18,7 +18,7 @@ angular.module('vin.io')
                         Notification.notify.success('Bottle {} updated', [ bottle._id ]);
                     })
                     .catch(function () {
-                        Notification.notify.success('Error during bottle {} update', [ bottle._id ]);
+                        Notification.notify.error('Error during bottle {} update', [ bottle._id ]);
                     });
             }
 
