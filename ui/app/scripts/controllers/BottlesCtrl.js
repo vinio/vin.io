@@ -7,6 +7,8 @@ angular.module('vin.io')
 
             bottles: Bottles.query(),
 
+            colors: [ 'RED', 'WHITE', 'ROSE' ],
+
             detail: function (bottle) {
                 $scope.selection = bottle;
                 $scope.currentPicture = bottle.picture;

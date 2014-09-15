@@ -1,80 +1,71 @@
-<div>
+<div class="row">
 
-    <div class="row">
+    <!-- Master -->
+    <div class="col-lg-8" class="master-list">
 
-        <!-- Spacer -->
-        <div class="col-lg-2">&nbsp;</div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Domain</th>
+                <th>Vintage</th>
+                <th>Description</th>
+                <th>Color</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="bottle in bottles">
+                <td><a ng-click="detail(bottle)" class="detail-link">{{ bottle.domain }}</a></td>
+                <td>{{ bottle.vintage }}</td>
+                <td>{{ bottle.description }}</td>
+                <td>{{ bottle.color }}</td>
+            </tr>
+            </tbody>
+        </table>
 
-        <div class="col-lg-10">
-            <div class="row">
-
-                <!-- Master -->
-                <div class="col-lg-8">
-
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Domain</th>
-                            <th>Vintage</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="bottle in bottles">
-                            <td>{{ bottle.domain }}</td>
-                            <td>{{ bottle.vintage }}</td>
-                            <td>{{ bottle.description }}</td>
-                            <td>
-                                <button class="btn btn-default btn-info" ng-click="detail(bottle)">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-
-                <!-- Details -->
-                <div class="col-lg-4" ng-if="selection">
-
-                    <form role="form">
-
-                        <div class="form-group">
-                            <label for="domainName">Domain name</label>
-                            <input type="text" class="form-control" id="domainName" placeholder="Domain name" ng-model="selection.domain">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bottleVintage">Vintage</label>
-                            <input type="text" class="form-control" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bottleDescription">Description</label>
-                            <textarea class="form-control" id="bottleDescription" ng-model="selection.description"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bottleDescription">Picture</label>
-                            <div class="input-group">
-                                <input class="form-control" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
-                                <div class="input-group-addon">.jpg</div>
-                            </div>
-                        </div>
-
-                        <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture" width="200px">
-
-                        <div class="row">&nbsp;</div>
-
-                        <button class="btn btn-info" ng-click="edit(selection)">Edit</button>
-
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
     </div>
+
+    <!-- Detail -->
+    <div class="col-lg-4 detail-form" ng-if="selection">
+
+        <form role="form">
+
+            <div class="form-group">
+                <label for="domainName">Domain name</label>
+                <input type="text" class="form-control" id="domainName" placeholder="Domain name" ng-model="selection.domain">
+            </div>
+
+            <div class="form-group">
+                <label for="bottleVintage">Vintage</label>
+                <input type="text" class="form-control" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
+            </div>
+
+            <div class="form-group">
+                <label for="bottleColor">Color</label>
+                <select type="text" class="form-control" id="bottleColor" ng-model="selection.color"
+                        ng-options="color for color in colors"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="bottleDescription">Description</label>
+                <textarea class="form-control" id="bottleDescription" ng-model="selection.description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="bottleDescription">Picture</label>
+                <div class="input-group">
+                    <input class="form-control" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
+                    <div class="input-group-addon">.jpg</div>
+                </div>
+            </div>
+
+            <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture" width="200px">
+
+            <div class="row">&nbsp;</div>
+
+            <button class="btn btn-info" ng-click="edit(selection)">Edit</button>
+
+        </form>
+
+    </div>
+
 </div>
