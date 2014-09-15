@@ -1,11 +1,26 @@
 'use strict';
 
 angular.module('vin.io')
-    .controller('BottlesCtrl', function ($scope, Bottles) {
+    .controller('BottlesCtrl', function ($scope, Bottles, Notification) {
 
-        $scope.bottles = Bottles.query();
+        angular.extend($scope, {
 
-        $scope.select = function (bottle) {
-            $scope.selection = bottle;
-        };
+            bottles: Bottles.query(),
+
+            detail: function (bottle) {
+                $scope.selection = bottle;
+                $scope.currentPicture = bottle.picture;
+            },
+
+            edit: function (bottle) {
+                return Bottles.createOrUpdate(bottle)
+                    .then(function () {
+                        Notification.notify.success('Bottle {} updated', [ bottle._id ]);
+                    })
+                    .catch(function () {
+                        Notification.notify.success('Error during bottle {} update', [ bottle._id ]);
+                    });
+            }
+
+        });
     });

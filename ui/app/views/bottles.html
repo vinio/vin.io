@@ -26,7 +26,7 @@
                             <td>{{ bottle.vintage }}</td>
                             <td>{{ bottle.description }}</td>
                             <td>
-                                <button class="btn btn-default btn-info" ng-click="select(bottle)">
+                                <button class="btn btn-default btn-info" ng-click="detail(bottle)">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </button>
                             </td>
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="col-lg-4" ng-if="selection" >
+                <div class="col-lg-4" ng-if="selection">
 
                     <form role="form">
 
@@ -56,8 +56,19 @@
                             <textarea class="form-control" id="bottleDescription" ng-model="selection.description"></textarea>
                         </div>
 
-                        <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture"
-                             width="200px">
+                        <div class="form-group">
+                            <label for="bottleDescription">Picture</label>
+                            <div class="input-group">
+                                <input class="form-control" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
+                                <div class="input-group-addon">.jpg</div>
+                            </div>
+                        </div>
+
+                        <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture" width="200px">
+
+                        <div class="row">&nbsp;</div>
+
+                        <button class="btn btn-info" ng-click="edit(selection)">Edit</button>
 
                     </form>
 
