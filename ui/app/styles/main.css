@@ -39,7 +39,6 @@ body {
     background-color: #f5f5f5;
 }
 
-
 /* Customize container */
 @media (min-width: 768px) {
     .container {
@@ -49,6 +48,18 @@ body {
 
 .container-narrow > hr {
     margin: 30px 0;
+}
+
+.detail-link {
+    cursor: pointer;
+}
+
+.master-list {
+
+}
+
+.detail-form {
+
 }
 
 
