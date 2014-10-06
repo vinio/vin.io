@@ -11,6 +11,7 @@ import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.jongo.JongoCollection;
 import restx.security.PermitAll;
+import vin.io.domain.Entity;
 import vin.io.domain.web.ResponseAck;
 import vin.io.domain.WineBottle;
 
@@ -26,6 +27,12 @@ public class WineBottlesResource {
 
     public WineBottlesResource(@Named("bottles") JongoCollection bottles) {
         this.bottles = bottles;
+    }
+
+    private void prepare(WineBottle entity) {
+        if (entity.getKey() == null) {
+            entity.setKey(new ObjectId().toString());
+        }
     }
 
     @GET("/bottles")
@@ -45,6 +52,7 @@ public class WineBottlesResource {
     @PermitAll
     public ResponseAck<WineBottle> addBottle(WineBottle bottle) {
         MongoCollection bottles = this.bottles.get();
+        prepare(bottle);
         bottles.save(bottle);
         logger.info("Bottle '{}' updated", bottle.getKey());
         return ResponseAck.success(bottle);
