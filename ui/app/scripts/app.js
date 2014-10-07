@@ -11,7 +11,8 @@
 angular
     .module('vin.io', [
         'ngResource',
-        'ngRoute'
+        'ngRoute',
+        'ngAnimate'
     ])
     .config(function ($routeProvider) {
         $routeProvider

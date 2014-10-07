@@ -1,6 +1,6 @@
 body {
     background-color: #ffffff;
-    background-image: url(http://www.transparenttextures.com/patterns/beige-paper.png);
+    background-image: url(../images/beige-paper.png);
 }
 
 .ctr {
@@ -10,11 +10,35 @@ body {
 }
 
 .hdr {
+    position: relative;
     flex: 1;
     max-height: 83px;
     padding: 5px 15px;
     background-color: #b0191b;
     border-bottom: 3px solid #75130a;
+}
+
+.hdr input {
+    position: absolute;
+        top: 50%;
+        right: 25px;
+    width: 45vw;
+    height: 30px;
+    margin-top: -15px;
+    padding-left: 30px;
+    background-color: rgba(255,255, 255, 0.80);
+    background-image: url(../images/ico_search.svg);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: auto 90%;
+    color: #b0191b;
+    border: none;
+    outline: none;
+    transition: all 0.250s ease-in;
+}
+
+.hdr input:focus {
+    background-color: white;
 }
 
 .logo {
@@ -107,6 +131,13 @@ nav > a:hover:after {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    transition: all 0.250s ease-in;
+}
+
+.btls-list.split {
+    max-width: 60vw;
+    margin-right: 35vw;
+    transition: all 0.250s ease-in;
 }
 
 .btls-list li {
@@ -187,6 +218,95 @@ nav > a:hover:after {
     color: #75130a;
 }
 
+.dtl-edit {
+    position: fixed;
+        top: 89px;
+        right: 2vw;
+    width: 33vw;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.flr {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.flr label {
+    float: left;
+    color: #75130a;
+}
+
+.flr textarea,
+.flr input,
+.flr select {
+    float: right;
+    width: 60%;
+    min-height: 25px;
+    padding: 2px 5px;
+    color: #b0191b;
+    font-weight: normal;
+    border: 1px solid #b0191b;
+    border-radius: 3px;
+    outline: none;
+    text-align: left;
+}
+
+.flr textarea.appnd,
+.flr input.append,
+.flr select.append {
+    float: right;
+    width: 50%;
+    border-radius: 3px 0 0 3px;
+    background-color: white;
+}
+
+.flr select {
+    height: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    -webkit-appearance: none;
+}
+
+.flr.select label:after {
+    content: '\25BC';
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    color: #b0191b;
+}
+
+.append {
+    float: right;
+    width: 10%;
+    height: 25px;
+    padding-top: 2px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    background-color: #b0191b;
+    border-radius: 0 3px 3px 0;
+}
+
+.dtl-edit img {
+    display: block;
+    margin: 10px auto 10px;
+    max-height: 350px;
+}
+
+.dtl-edit button {
+    float: right;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #75130a;
+    border: none;
+    border-radius: 3px;
+}
+
 .ftr {
     display: flex;
     flex: 0;
@@ -195,7 +315,7 @@ nav > a:hover:after {
     align-items: center;
     color: white;
     background-color: #75130a;
-    background-image: url(http://www.transparenttextures.com/patterns/dark-stripes.png);
+    background-image: url(../images/dark-stripes.png);
 }
 
 .ftr p {
@@ -231,4 +351,66 @@ nav > a:hover:after {
         transform:translateX(0) translateY(0);
     }
 }
+
+
+/*
+ * ngRepeat triggers three animation events: enter, leave and move.
+ */
+.animate.ng-enter,
+.animate.ng-leave,
+.animate.ng-move {
+    -webkit-transition:0.250s linear all;
+    transition:0.250s linear all;
+}
+
+.animate.ng-enter-stagger,
+.animate.ng-leave-stagger,
+.animate.ng-move-stagger {
+    /* 50ms between each item being animated after the other */
+    -webkit-transition-delay:150ms;
+    transition-delay:150ms;
+
+    /* this is required here to prevent any CSS inheritance issues */
+    -webkit-transition-duration:0;
+    transition-duration:0;
+}
+
+/* ending enter and move styling
+   (this is what the element will animate from */
+.animate.ng-enter,
+.animate.ng-move { opacity:0; }
+
+/* ending enter and move styling
+   (this is what the element will animate towards */
+.animate.ng-enter.ng-enter-active,
+.animate.ng-move.ng-move-active { opacity:1; }
+
+/* starting leave animation */
+.animate.ng-leave { opacity:1; }
+
+/* ending leave animation */
+.animate.ng-leave.ng-leave-active { opacity:0; }
+
+/*
+ * ngRepeat triggers three animation events: enter, leave and move.
+ */
+.dtl-edit.ng-enter,
+.dtl-edit.ng-leave,
+.dtl-edit.ng-move {
+    transition: all 0.250s ease-in;
+}
+
+/* ending enter and move styling
+   (this is what the element will animate from */
+.dtl-edit.ng-enter { width: 0; }
+
+/* ending enter and move styling
+   (this is what the element will animate towards */
+.dtl-edit.ng-enter.ng-enter-active{ width: 45vw; }
+
+/* starting leave animation */
+.dtl-edit.ng-leave {  width: 45vw; }
+
+/* ending leave animation */
+.dtl-edit.ng-leave.ng-leave-active { width: 0; }
 

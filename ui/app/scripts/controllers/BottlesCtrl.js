@@ -14,6 +14,11 @@ angular.module('vin.io')
                 $scope.currentPicture = bottle.picture;
             },
 
+            closeDetail: function () {
+                $scope.selection = null;
+                $scope.currentPicture = null;
+            },
+
             load: function () {
                 $scope.bottles = Bottles.query();
             },

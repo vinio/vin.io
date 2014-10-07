@@ -1,13 +1,12 @@
-<div class="">
-
+<div class="btls">
     <!-- Master -->
-    <ul class="btls-list">
-        <li ng-repeat="bottle in bottles | filter:query">
+    <ul class="btls-list" ng-class="{'split' : selection}">
+        <li class="animate" ng-repeat="bottle in bottles | filter:query">
             <div class="btl-ctr">
                 <span class="btl" ng-include="'images/bottle.svg'"
                       ng-class="{'bdx'   : bottle.color == 'RED',
-                                 'white' : bottle.color == 'WHITE',
-                                 'rose'  : bottle.color == 'ROSE'}"></span>
+                             'white' : bottle.color == 'WHITE',
+                             'rose'  : bottle.color == 'ROSE'}"></span>
 
                 <img alt="Vinio" ng-src="../images/{{ bottle.picture }}.jpg">
             </div>
@@ -16,6 +15,7 @@
                 <a ng-click="detail(bottle)">
                     <h3>{{ bottle.domain }} - {{ bottle.vintage }}</h3>
                 </a>
+
                 <p>{{ bottle.description }}</p>
             </div>
 
@@ -24,55 +24,51 @@
     </ul>
 
     <!-- Detail -->
-    <div class="" ng-if="selection">
+    <form role="form" class="dtl-edit" ng-if="selection">
+        <div class="flr">
+            <label for="domainName">Domain name</label>
+            <input type="text" id="domainName" placeholder="Domain name"
+                   ng-model="selection.domain">
+        </div>
 
-        <form role="form" class="">
+        <div class="flr">
+            <label for="bottleVintage">Vintage</label>
+            <input type="number" id="bottleVintage" placeholder="Vintage"
+                   ng-model="selection.vintage">
+        </div>
 
-            <div class="">
-                <label for="domainName">Domain name</label>
-                <input type="text" class="" id="domainName" placeholder="Domain name" ng-model="selection.domain">
-            </div>
+        <div class="flr select">
+            <label for="bottleColor">Color</label>
+            <select type="text" id="bottleColor" ng-model="selection.color"
+                    ng-options="color for color in colors"></select>
+        </div>
 
-            <div class="">
-                <label for="bottleVintage">Vintage</label>
-                <input type="number" class="" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
-            </div>
+        <div class="flr">
+            <label for="bottleDescription">Description</label>
+            <textarea id="bottleDescription" ng-model="selection.description"></textarea>
+        </div>
 
-            <div class="">
-                <label for="bottleColor">Color</label>
-                <select type="text" class="" id="bottleColor" ng-model="selection.color"
-                        ng-options="color for color in colors"></select>
-            </div>
+        <div class="flr">
+            <label for="bottlePrice">Price</label>
 
-            <div class="">
-                <label for="bottleDescription">Description</label>
-                <textarea class="" id="bottleDescription" ng-model="selection.description"></textarea>
-            </div>
+            <div class="append">{{ '' | currency }}</div>
 
-            <div class="">
-                <label for="bottlePrice">Price</label>
-                <div class="">
-                    <input type="number" class="" id="bottlePrice" placeholder="Price" ng-model="selection.price">
-                    <div class="">{{ '' | currency }}</div>
-                </div>
-            </div>
+            <input type="number" class="append" id="bottlePrice" placeholder="Price"
+                       ng-model="selection.price">
+        </div>
 
-            <div class="">
-                <label for="bottleDescription">Picture</label>
-                <div class="input-group">
-                    <input class="" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
-                    <div class="">.jpg</div>
-                </div>
-            </div>
+        <div class="flr">
+            <label for="bottleDescription">Picture</label>
 
-            <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture" width="200px">
+            <div class="append">.jpg</div>
 
-            <div class="">&nbsp;</div>
+            <input class="append" ng-model="currentPicture"
+                   ng-blur="selection.picture = currentPicture">
+        </div>
 
-            <button class="" ng-click="edit(selection)">Edit</button>
+        <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture">
 
-        </form>
-
-    </div>
-
+        <button ng-click="closeDetail()">Close</button>
+        <button ng-click="edit(selection)">Edit</button>
+    </form>
 </div>
