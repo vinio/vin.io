@@ -1,76 +1,75 @@
-<div class="row main-content">
+<div class="">
 
     <!-- Master -->
-    <div class="col-lg-8" class="master-list">
+    <ul class="btls-list">
+        <li ng-repeat="bottle in bottles | filter:query">
+            <div class="btl-ctr">
+                <span class="btl" ng-include="'images/bottle.svg'"
+                      ng-class="{'bdx'   : bottle.color == 'RED',
+                                 'white' : bottle.color == 'WHITE',
+                                 'rose'  : bottle.color == 'ROSE'}"></span>
 
-        <div class="bottles-list">
-            <ul class="thumbnails">
-                <li ng-repeat="bottle in bottles | filter:query">
-                    <div class="thumbnail">
+                <img alt="Vinio" ng-src="../images/{{ bottle.picture }}.jpg">
+            </div>
 
-                        <img alt="300x200" style="height:100px; float:right;" ng-src="../images/{{ bottle.picture }}.jpg">
+            <div class="dtl">
+                <a ng-click="detail(bottle)">
+                    <h3>{{ bottle.domain }} - {{ bottle.vintage }}</h3>
+                </a>
+                <p>{{ bottle.description }}</p>
+            </div>
 
-                        <div class="caption">
-                            <a ng-click="detail(bottle)" class="detail-link">
-                                <h3>{{ bottle.domain }} - {{ bottle.vintage }}</h3>
-                            </a>
-                            <p>{{ bottle.description }}</p>
-                            <p><span class='label label-info'>{{ bottle.price | currency }}</span></p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-    </div>
+            <span class='price'>{{ bottle.price | currency }}</span>
+        </li>
+    </ul>
 
     <!-- Detail -->
-    <div class="col-lg-4 detail-form panel panel-default" ng-if="selection">
+    <div class="" ng-if="selection">
 
-        <form role="form" class="panel-body">
+        <form role="form" class="">
 
-            <div class="form-group">
+            <div class="">
                 <label for="domainName">Domain name</label>
-                <input type="text" class="form-control" id="domainName" placeholder="Domain name" ng-model="selection.domain">
+                <input type="text" class="" id="domainName" placeholder="Domain name" ng-model="selection.domain">
             </div>
 
-            <div class="form-group">
+            <div class="">
                 <label for="bottleVintage">Vintage</label>
-                <input type="number" class="form-control" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
+                <input type="number" class="" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
             </div>
 
-            <div class="form-group">
+            <div class="">
                 <label for="bottleColor">Color</label>
-                <select type="text" class="form-control" id="bottleColor" ng-model="selection.color"
+                <select type="text" class="" id="bottleColor" ng-model="selection.color"
                         ng-options="color for color in colors"></select>
             </div>
 
-            <div class="form-group">
+            <div class="">
                 <label for="bottleDescription">Description</label>
-                <textarea class="form-control" id="bottleDescription" ng-model="selection.description"></textarea>
+                <textarea class="" id="bottleDescription" ng-model="selection.description"></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="">
                 <label for="bottlePrice">Price</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" id="bottlePrice" placeholder="Price" ng-model="selection.price">
-                    <div class="input-group-addon">{{ '' | currency }}</div>
+                <div class="">
+                    <input type="number" class="" id="bottlePrice" placeholder="Price" ng-model="selection.price">
+                    <div class="">{{ '' | currency }}</div>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="">
                 <label for="bottleDescription">Picture</label>
                 <div class="input-group">
-                    <input class="form-control" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
-                    <div class="input-group-addon">.jpg</div>
+                    <input class="" ng-model="currentPicture" ng-blur="selection.picture = currentPicture">
+                    <div class="">.jpg</div>
                 </div>
             </div>
 
             <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture" width="200px">
 
-            <div class="row">&nbsp;</div>
+            <div class="">&nbsp;</div>
 
-            <button class="btn btn-info" ng-click="edit(selection)">Edit</button>
+            <button class="" ng-click="edit(selection)">Edit</button>
 
         </form>
 
