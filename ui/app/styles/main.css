@@ -172,7 +172,7 @@ nav > a:hover:after {
 
 .btl {
     display: block;
-    max-width: 175px;
+    max-width: 225px;
     margin: auto;
 }
 
@@ -182,10 +182,10 @@ nav > a:hover:after {
 
 .btl-ctr img {
     position: absolute;
-        top: 80px;
+        top: 97px;
         left: 50%;
-    width: 37px;
-    margin-left: -18.5px;
+    width: 47px;
+    margin-left: -23.5px;
 }
 
 .btl.bdx .fill {
