@@ -27,6 +27,7 @@ angular.module('vin.io')
                 return Bottles.createOrUpdate(bottle)
                     .then(function () {
                         Notification.notify.success('Bottle {} updated', [ bottle._id ]);
+                        $scope.closeDetail();
                         $scope.load();
                     })
                     .catch(function () {
