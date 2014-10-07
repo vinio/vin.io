@@ -11,7 +11,6 @@ import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.jongo.JongoCollection;
 import restx.security.PermitAll;
-import vin.io.domain.Entity;
 import vin.io.domain.web.ResponseAck;
 import vin.io.domain.WineBottle;
 
