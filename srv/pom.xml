@@ -22,12 +22,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>vin.io</groupId>
-            <artifactId>vin.io-ui</artifactId>
-            <version>0.1-SNAPSHOT</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
             <groupId>io.restx</groupId>
             <artifactId>restx-core</artifactId>
             <version>${restx.version}</version>
