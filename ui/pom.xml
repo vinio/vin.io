@@ -4,7 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>vin.io</groupId>
+    <parent>
+        <groupId>vin.io</groupId>
+        <artifactId>vin.io-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
     <artifactId>vin.io-ui</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>

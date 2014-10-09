@@ -4,11 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>vin.io</groupId>
     <artifactId>vin.io</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>vin.io</name>
+
+    <parent>
+        <groupId>vin.io</groupId>
+        <artifactId>vin.io-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
 
     <properties>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -16,8 +21,7 @@
         <restx.version>0.33.1</restx.version>
         <logback.version>1.0.13</logback.version>
         <guava.version>17.0</guava.version>
-        <project.war.overlay.groupId>vin.io</project.war.overlay.groupId>
-        <project.war.overlay.artifactId>vin.io</project.war.overlay.artifactId>
+        <project.war.resources.directory>../ui/dist</project.war.resources.directory>
     </properties>
 
     <dependencies>
@@ -151,15 +155,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
                 <configuration>
-                    <overlays>
-                        <overlay>
-                            <groupId>${project.war.overlay.groupId}</groupId>
-                            <artifactId>${project.war.overlay.groupId}-ui</artifactId>
-                            <type>zip</type>
-                        </overlay>
-                    </overlays>
+                    <webResources>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>${project.war.resources.directory}</directory>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
