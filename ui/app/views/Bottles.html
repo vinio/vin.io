@@ -13,8 +13,15 @@
 
             <div class="dtl">
                 <a ng-click="detail(bottle)">
-                    <h3>{{ bottle.domain }} - {{ bottle.vintage }}</h3>
+                    <h3>{{ bottle.domain }}</h3>
                 </a>
+
+                <span class="vintage"
+                      ng-class="{'early' : bottle.vintage >= '2008',
+                                 'good'  : bottle.vintage >= '2005' && bottle.vintage < '2008',
+                                 'late'  : bottle.vintage < '2005'}">
+                    {{ bottle.vintage }}
+                </span>
 
                 <p>{{ bottle.description }}</p>
             </div>
