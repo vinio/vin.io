@@ -21,8 +21,9 @@ module.exports = function (grunt) {
         dist: 'dist'
     };
 
-    // ************************** E2E Test *************************
+    // ************************** Test *************************
 
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
     grunt.loadNpmTasks('grunt-protractor-runner');
 
