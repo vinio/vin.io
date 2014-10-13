@@ -16,10 +16,7 @@
                     <h3>{{ bottle.domain }}</h3>
                 </a>
 
-                <span class="vintage"
-                      ng-class="{'early' : bottle.vintage >= '2008',
-                                 'good'  : bottle.vintage >= '2005' && bottle.vintage < '2008',
-                                 'late'  : bottle.vintage < '2005'}">
+                <span class="vintage" ng-class="getVintageClass(bottle)">
                     {{ bottle.vintage }}
                 </span>
 

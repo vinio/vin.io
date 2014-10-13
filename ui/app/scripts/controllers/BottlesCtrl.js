@@ -33,6 +33,12 @@ angular.module('vin.io')
                     .catch(function () {
                         Notification.notify.error('Error during bottle {} update', [ bottle._id ]);
                     });
+            },
+
+            getVintageClass: function (bottle) {
+                if (bottle.vintage >= 2010) return 'early';
+                if (bottle.vintage >= 2005 && bottle.vintage < 2010) return 'good';
+                if (bottle.vintage < 2005) return 'late';
             }
 
         });
