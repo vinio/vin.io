@@ -1,0 +1,1 @@
+web:    java $JAVA_OPTS -cp srv/target/classes:srv/target/dependency/* -Drestx.http.XForwardedSupport=all -Drestx.mode=prod -Dmongo.uri=$MONGO_URI vin.io.AppServer
