@@ -162,6 +162,8 @@ nav > a:hover:after {
     color: white;
     z-index: 1;
     -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    transform: rotate(-30deg);
 }
 
 .btls-list .vintage:before {
@@ -178,6 +180,8 @@ nav > a:hover:after {
     border-left: 20px solid rgba(0, 0, 0, 0);
     z-index: -2;
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
 .btls-list .vintage.early:before { border-bottom-color: darkorange;}
