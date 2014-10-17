@@ -1,6 +1,7 @@
 package vin.io.resources;
 
 import restx.annotations.GET;
+import restx.annotations.POST;
 import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.jongo.JongoCollection;
@@ -25,5 +26,11 @@ public class WineBottleResource {
     @GET("/bottles")
     public Iterable<WineBottle> findAllBottles() {
         return bottles.get().find().as(WineBottle.class);
+    }
+
+    @POST("/bottles")
+    public WineBottle saveBottle(WineBottle bottle) {
+        bottles.get().save(bottle);
+        return bottle;
     }
 }
