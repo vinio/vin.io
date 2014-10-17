@@ -2,7 +2,7 @@
 
     <!-- Master -->
     <ul class="btls-list" ng-class="{'split' : selection}">
-        <li class="animate" ng-repeat="bottle in bottles">
+        <li class="animate" ng-repeat="bottle in bottles | filter:query">
             <div class="btl-ctr">
                 <span class="btl" ng-include="'images/bottle.svg'" ng-class="{
                              'bdx'   : bottle.color == 'RED',
@@ -29,7 +29,7 @@
     </ul>
 
     <!-- Details -->
-    <form role="form" class="dtl-edit">
+    <form role="form" class="dtl-edit" ng-if="selection">
         <div class="flr">
             <label for="domainName">Chateau</label>
             <input type="text" id="domainName" placeholder="Domain name" ng-model="selection.domain">
