@@ -4,6 +4,7 @@ import restx.annotations.GET;
 import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.jongo.JongoCollection;
+import restx.security.PermitAll;
 import vin.io.domain.WineBottle;
 
 import javax.inject.Named;
@@ -13,6 +14,7 @@ import javax.inject.Named;
  * Time: 11:19
  */
 @Component @RestxResource
+@PermitAll
 public class WineBottleResource {
     private JongoCollection bottles;
 

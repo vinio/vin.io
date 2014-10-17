@@ -1,0 +1,31 @@
+<div ng-controller="BottlesCtrl">
+
+    <!-- Master -->
+    <ul class="btls-list" ng-class="{'split' : selection}">
+        <li class="animate" ng-repeat="bottle in bottles">
+            <div class="btl-ctr">
+                <span class="btl" ng-include="'images/bottle.svg'" ng-class="{
+                             'bdx'   : bottle.color == 'RED',
+                             'white' : bottle.color == 'WHITE',
+                             'rose'  : bottle.color == 'ROSE'}"></span>
+
+                <img alt="Vinio" ng-src="../images/{{ bottle.picture }}.jpg">
+            </div>
+
+            <div class="dtl">
+                <a>
+                    <h3>{{ bottle.domain }}</h3>
+                </a>
+
+                <span class="vintage">
+                    {{ bottle.vintage }}
+                </span>
+
+                <p>{{ bottle.description }}</p>
+            </div>
+
+            <span class='price'>{{ bottle.price }}</span>
+        </li>
+    </ul>
+
+</div>
