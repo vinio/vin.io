@@ -14,7 +14,7 @@
 
             <div class="dtl">
                 <a>
-                    <h3>{{ bottle.domain }}</h3>
+                    <h3 ng-click="showDetail(bottle)">{{ bottle.domain }}</h3>
                 </a>
 
                 <span class="vintage">
@@ -27,5 +27,48 @@
             <span class='price'>{{ bottle.price }}</span>
         </li>
     </ul>
+
+    <!-- Details -->
+    <form role="form" class="dtl-edit">
+        <div class="flr">
+            <label for="domainName">Chateau</label>
+            <input type="text" id="domainName" placeholder="Domain name" ng-model="selection.domain">
+        </div>
+
+        <div class="flr">
+            <label for="bottleVintage">Millesime</label>
+            <input type="number" id="bottleVintage" placeholder="Vintage" ng-model="selection.vintage">
+        </div>
+
+        <div class="flr select">
+            <label for="bottleColor">Couleur</label>
+            <select type="text" id="bottleColor"></select>
+        </div>
+
+        <div class="flr">
+            <label for="bottleDescription">Description</label>
+            <textarea id="bottleDescription" ng-model="selection.description"></textarea>
+        </div>
+
+        <div class="flr">
+            <label for="bottlePrice">Prix</label>
+
+            <div class="append">patates</div>
+
+            <input type="number" class="append" id="bottlePrice" placeholder="Price" ng-model="selection.price">
+        </div>
+
+        <div class="flr">
+            <label for="bottleDescription">Picture</label>
+
+            <div class="append">.jpg</div>
+
+            <input class="append" ng-model="selection.picture">
+        </div>
+
+        <img ng-src="../images/{{ selection.picture }}.jpg" alt="picture">
+
+        <button ng-click="edit(selection)">Modifier</button>
+    </form>
 
 </div>
